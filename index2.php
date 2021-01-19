@@ -64,7 +64,7 @@
                         return $this -> securyLvl;
                     }
                     public function setSecuryLvl($securyLvl) {
-                      $this -> securityLvl = $securityLvl;
+                      $this -> securyLvl = $securyLvl;
                     }
                     public function __toString() {
                         return
@@ -87,7 +87,7 @@
                         $this -> setMainTask($mainTask);
                         $this -> setIdCode($idCode);
                         $this -> setDateOfHiring($dateOfHiring);
-                        $this -> setSecurityLvl($securityLvl);
+                        $this -> setSecuryLvl($securyLvl);
                     }
                     public function getRal() {
                         return $this -> $ral;
@@ -113,15 +113,18 @@
                     public function setDateOfHiring($dateOfHiring) {
                         $this -> dateOfHiring = $dateOfHiring;
                     }
-                    public function getSecurityLvl() {
-                          return $this -> securityLvl;
+                    public function getSecuryLvl() {
+                          return $this -> securyLvl;
                       }
 
-                      public function setSecurityLvl($securityLvl) {
-                          if ($securityLvl > 1 && $securityLvl < 5) {
+                      public function setSecuryLvl($securyLvl) {
+                          if ($securyLvl < 1 || $securyLvl > 5) {
                               throw new Exception("Security Level must be value from 1 to 5");
                           }
-                          $this -> securityLvl = $securityLvl;
+                          else{
+                            $this -> securyLvl = $securyLvl;
+
+                          }
                       }
                     public function __toString() {
                         return parent::__toString() . '<br>'
@@ -145,6 +148,7 @@
                         $this -> setVacancy($vacancy);
                         $this -> setSector($sector);
                         $this -> setEmployees($employees);
+                        $this -> setSecuryLvl($securyLvl);
                     }
                     public function getProfit() {
                         return $this -> profit;
@@ -170,6 +174,16 @@
                     public function setEmployees($employees) {
                         $this -> employees = $employees;
                     }
+                    public function getSecuryLvl() {
+                          return $this -> securyLvl;
+                      }
+
+                      public function setSecuryLvl($securyLvl) {
+                          if ($securyLvl < 6 || $securyLvl > 10) {
+                              throw new Exception("Security Level must be value from 6 to 10");
+                          }
+                          $this -> securyLvl = $securyLvl;
+                      }
                     public function __toString() {
                         return parent::__toString() . '<br>'
                                 . 'profit: ' . $this -> getProfit() . '<br>'
@@ -195,7 +209,7 @@
                       '(p)name',
                       '(p)lastname',
                       '(p)dateOfBirth',
-                      '(p)securityLvl',
+                      '(p)securyLvl',
                   );
                   echo 'p1:<br>' . $p1 . '<br><br>';
                 } catch (Exception  $e) {
@@ -217,7 +231,7 @@
                   );
                   echo 'e1:<br>' . $e1 . '<br><br>';
                 } catch (Exception  $e) {
-                    var_dump($e); die();
+                    echo $e -> getMessage(); die();
                 }
 
 
@@ -226,7 +240,7 @@
                       '(b)name',
                       '(b)lastname',
                       '(b)dateOfBirth',
-                      '(b)securyLvl',
+                       8,
                       '(b)ral',
                       '(b)mainTask',
                       '(b)idCode',
@@ -243,7 +257,8 @@
                   );
                   echo 'b1:<br>' . $b1 . '<br><br>';
                 } catch (Exception  $e) {
-                  var_dump($e); die();
+                  echo $e -> getMessage(); die();
+
                 }
 
 
