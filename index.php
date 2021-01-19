@@ -11,12 +11,7 @@
 <body>
 
 
-  <!-- GOAL: sulla base dell'esercizio di ieri (vedi correzione qui su slack) aggiungere i seguenti vincoli di integrita':
-  - nomi e cognomi devono essere di >3 caratteri
-  - i livelli di sicurezza devono essere [1;5] per i dipendenti e [6;10] per i boss
-  - ral employee [10.000;100.000]
-  - non puo' esistere boss senza dipendenti
-  Durante la fase di test, utilizzare il costrutto try-catch per gestire l'errore e informare l'utente -->
+
 
   <?php
 
