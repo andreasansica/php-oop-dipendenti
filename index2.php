@@ -93,7 +93,10 @@
                         return $this -> $ral;
                     }
                     public function setRal($ral) {
-                        $this -> ral = $ral;
+                        if ($ral < 10.000 || $ral > 100.000) {
+                          throw new Exception("The ral must be at least from 10000 to 100000");
+
+                        }
                     }
                     public function getMainTask() {
                         return $this -> $mainTask;
@@ -172,6 +175,11 @@
                         return $this -> employees;
                     }
                     public function setEmployees($employees) {
+
+                      if (count($employees) < 1) {
+                        throw new Exception("The boss must have at least 1 employee");
+
+                      }
                         $this -> employees = $employees;
                     }
                     public function getSecuryLvl() {
@@ -213,7 +221,7 @@
                   );
                   echo 'p1:<br>' . $p1 . '<br><br>';
                 } catch (Exception  $e) {
-                    var_dump($e); die();
+                  echo $e -> getMessage(); die();
                 }
 
 
@@ -224,7 +232,7 @@
                       '(e)lastname',
                       '(e)dateOfBirth',
                        3,
-                      '(e)ral',
+                      '100.000',
                       '(e)mainTask',
                       '(e)idCode',
                       '(e)dateOfHiring',
@@ -241,7 +249,7 @@
                       '(b)lastname',
                       '(b)dateOfBirth',
                        8,
-                      '(b)ral',
+                      '10.000',
                       '(b)mainTask',
                       '(b)idCode',
                       '(b)dateOfHiring',
